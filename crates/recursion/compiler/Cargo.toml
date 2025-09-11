@@ -1,0 +1,44 @@
+[package]
+name = "sp1-recursion-compiler"
+description = "SP1 is a performant, 100% open-source, contributor-friendly zkVM."
+readme = "../../../README.md"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+repository = { workspace = true }
+keywords = { workspace = true }
+categories = { workspace = true }
+
+[dependencies]
+slop-bn254 = { workspace = true }
+slop-koala-bear = { workspace = true }
+slop-algebra = { workspace = true }
+slop-symmetric = { workspace = true }
+slop-challenger = {workspace = true}
+slop-merkle-tree = { workspace = true }
+
+sp1-core-machine = { workspace = true }
+sp1-primitives = { workspace = true }
+sp1-recursion-executor = { workspace = true }
+sp1-recursion-derive = { workspace = true }
+sp1-hypercube = { workspace = true }
+
+itertools = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+backtrace = "0.3.71"
+tracing = { workspace = true }
+vec_map = "0.8.2"
+cfg-if = "1.0.0"
+
+[dev-dependencies]
+sp1-recursion-executor = { workspace = true, features = ["program_validation"] }
+slop-dft = { workspace = true }
+slop-merkle-tree = { workspace = true }
+rand = "0.8.5"
+
+[features]
+# Enables cycle tracking and adds backtraces for circuit IR assertions.
+debug = ["sp1-recursion-executor/debug"]
+
+[lints]
+workspace = true

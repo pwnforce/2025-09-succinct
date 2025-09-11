@@ -1,0 +1,46 @@
+[package]
+name = "sp1-cli"
+description = "The CLI is used for various tasks related to SP1, such as building the toolchain, compiling programs, and tracing programs."
+readme = "README.md"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+repository = { workspace = true }
+keywords = { workspace = true }
+categories = { workspace = true }
+
+[build-dependencies]
+vergen = { version = "8", default-features = false, features = [
+  "build",
+  "git",
+  "git2",
+] }
+
+[dependencies]
+
+anyhow = { version = "1.0.83", features = ["backtrace"] }
+clap = { version = "4.5.9", features = ["derive", "env"] }
+sp1-build = { workspace = true, optional = true }
+sp1-sdk = { workspace = true, optional = true }
+reqwest = { version = "0.12.4", features = [
+  "stream",
+  "json",
+  "rustls-tls",
+], default-features = false }
+tokio = { version = "1", features = ["full"] }
+dirs = "5.0"
+rand = "0.8"
+serde_json = { workspace = true }
+yansi = "1.0.1"
+target-lexicon = "0.12.15"
+cargo_metadata = "0.18.1"
+indicatif = "0.17.8"
+futures.workspace = true
+
+[features]
+default = ["full"]
+
+full = [
+  "dep:sp1-build",
+  "dep:sp1-sdk"
+]

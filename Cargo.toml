@@ -1,0 +1,203 @@
+[workspace.package]
+version = "6.0.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/succinctlabs/sp1"
+keywords = ["sp1", "succinct", "zero-knowledge", "zkvm"]
+categories = ["cryptography"]
+include = ["SP1_VERSION"]
+
+[workspace]
+members = [
+  "slop/crates/air",
+  "slop/crates/bn254",
+  "slop/crates/basefold",
+  "slop/crates/whir",
+  "slop/crates/algebra",
+  "slop/crates/basefold-prover",
+  "slop/crates/sumcheck",
+  "slop/crates/multilinear",
+  "slop/crates/utils",
+  "slop/crates/baby-bear",
+  "slop/crates/dft",
+  "slop/crates/matrix",
+  "slop/crates/symmetric",
+  "slop/crates/merkle-tree",
+  "slop/crates/poseidon2",
+  "slop/crates/commit",
+  "slop/crates/challenger",
+  "slop/crates/fri",
+  "slop/crates/maybe-rayon",
+  "slop/crates/tensor",
+  "slop/crates/alloc",
+  "slop/crates/slop",
+  "slop/crates/jagged",
+  "slop/crates/spartan",
+  "slop/crates/pgspcs",
+  "slop/crates/stacked",
+  "slop/crates/pcs-bench",
+  "slop/crates/futures",
+  "slop/crates/keccak-air",
+  "slop/crates/uni-stark",
+  "slop/crates/koala-bear",
+  "crates/build",
+  "crates/cli",
+  "crates/core/executor",
+  "crates/core/machine",
+  "crates/recursion/circuit",
+  "crates/recursion/compiler",
+  "crates/recursion/derive",
+  "crates/recursion/executor",
+  "crates/recursion/gnark-ffi",
+  "crates/recursion/machine",
+  "crates/curves",
+  "crates/derive",
+  "crates/helper",
+  "crates/prover",
+  "crates/hypercube",
+  "crates/test-artifacts",
+  "crates/zkvm/*",
+  "crates/sdk",
+  "crates/primitives",
+  "crates/cuda",
+  "crates/cli",
+  "crates/core/compiler",
+  "crates/perf",
+  # "crates/verifier",
+]
+exclude = [
+  "examples/target",
+  "crates/eval",
+  "crates/recursion/gnark-cli",
+  # "crates/verifier",
+]
+resolver = "2"
+
+[profile.release]
+opt-level = 3
+
+[profile.bench]
+opt-level = 3
+
+[profile.fast]
+inherits = "release"
+debug = true
+debug-assertions = true
+
+[workspace.dependencies]
+sp1-build = { path = "crates/build", version = "6.0.0" }
+sp1-cli = { path = "crates/cli", version = "6.0.0", default-features = false }
+sp1-core-machine = { path = "crates/core/machine", version = "6.0.0" }
+sp1-core-executor = { path = "crates/core/executor", version = "6.0.0" }
+sp1-curves = { path = "crates/curves", version = "6.0.0" }
+sp1-derive = { path = "crates/derive", version = "6.0.0" }
+sp1-eval = { path = "crates/eval", version = "6.0.0" }
+sp1-helper = { path = "crates/helper", version = "6.0.0", default-features = false }
+sp1-primitives = { path = "crates/primitives", version = "6.0.0" }
+sp1-prover = { path = "crates/prover", version = "6.0.0" }
+sp1-recursion-compiler = { path = "crates/recursion/compiler", version = "6.0.0" }
+sp1-recursion-core = { path = "crates/recursion/core", version = "6.0.0" }
+sp1-recursion-derive = { path = "crates/recursion/derive", version = "6.0.0", default-features = false }
+sp1-recursion-gnark-ffi = { path = "crates/recursion/gnark-ffi", version = "6.0.0", default-features = false }
+sp1-recursion-circuit = { path = "crates/recursion/circuit", version = "6.0.0", default-features = false }
+sp1-recursion-executor = { path = "crates/recursion/executor", version = "6.0.0", default-features = false }
+sp1-recursion-machine = { path = "crates/recursion/machine", version = "6.0.0", default-features = false }
+sp1-sdk = { path = "crates/sdk", version = "6.0.0" }
+sp1-cuda = { path = "crates/cuda", version = "6.0.0" }
+sp1-hypercube = { path = "crates/hypercube", version = "6.0.0" }
+sp1-lib = { path = "crates/zkvm/lib", version = "6.0.0", default-features = false }
+sp1-zkvm = { path = "crates/zkvm/entrypoint", version = "6.0.0", default-features = false }
+
+p3-air = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-bn254-fr = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-field = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-commit = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-matrix = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-baby-bear = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6", features = [
+    "nightly-features",
+] }
+p3-util = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-challenger = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-dft = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-maybe-rayon = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6", features = [
+    "parallel",
+] }
+p3-merkle-tree = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-poseidon2 = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-symmetric = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-fri = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-uni-stark = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-keccak-air = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+p3-koala-bear = { git = "https://github.com/Plonky3/Plonky3/", branch = "sp1-v6" }
+
+
+slop-utils = { path = "./slop/crates/utils" }
+slop-baby-bear = { path = "./slop/crates/baby-bear" }
+slop-dft = { path = "./slop/crates/dft" }
+slop-fri = { path = "./slop/crates/fri" }
+slop-pgspcs = { path = "./slop/crates/pgspcs" }
+
+slop-algebra = { path = "./slop/crates/algebra" }
+slop-alloc = { path = "./slop/crates/alloc" }
+slop-basefold = { path = "./slop/crates/basefold" }
+slop-bn254 = { path = "./slop/crates/bn254" }
+slop-basefold-prover = { path = "./slop/crates/basefold-prover" }
+slop-commit = { path = "./slop/crates/commit" }
+slop-jagged = { path = "./slop/crates/jagged" }
+slop-sumcheck = { path = "./slop/crates/sumcheck" }
+slop-stacked = { path = "./slop/crates/stacked" }
+slop-tensor = { path = "./slop/crates/tensor" }
+slop-multilinear = { path = "./slop/crates/multilinear" }
+slop-challenger = { path = "./slop/crates/challenger" }
+slop-air = { path = "./slop/crates/air" }
+slop-matrix = { path = "./slop/crates/matrix" }
+slop-koala-bear = { path = "./slop/crates/koala-bear" }
+slop-symmetric = { path = "./slop/crates/symmetric" }
+slop-merkle-tree = { path = "./slop/crates/merkle-tree" }
+slop-futures = { path = "./slop/crates/futures" }
+slop-maybe-rayon = { path = "./slop/crates/maybe-rayon" }
+slop-poseidon2 = { path = "./slop/crates/poseidon2" }
+slop-uni-stark = { path = "./slop/crates/uni-stark" }
+slop-keccak-air = { path = "./slop/crates/keccak-air" }
+slop-whir = { path = "./slop/crates/whir" }
+
+# For testing.
+test-artifacts = { path = "crates/test-artifacts" }
+
+
+# misc
+rand = "0.8.5"
+hashbrown = "0.14.5"
+itertools = "0.13.0"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.132"
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+tokio = "1.42.0"
+futures = "0.3"
+derive-where = { version = "1.5.0", features = ["serde"] }
+strum_macros = "0.27.1"
+strum = "0.27.1"
+blake3 = { version = "1.6.1", default-features = false }
+deepsize2 = { version = "0.1.0", features = ["hashbrown"] }
+elf = "0.7.4"
+
+
+rayon = "1.10.0"
+
+# misc
+thiserror = "1.0"
+num_cpus = "1.16.0"
+
+[workspace.metadata.typos]
+default.extend-ignore-re = [
+  "Jo-Philipp Wich",
+  "SubEIN",
+  "DivEIN",
+  "CommitCommitedValuesDigest",
+  "numer",
+]
+default.extend-ignore-words-re = ["(?i)groth", "TRE"]
+
+[workspace.lints.clippy]
+print_stdout = "deny"

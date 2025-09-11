@@ -1,0 +1,91 @@
+[package]
+name = "sp1-core-machine"
+description = "SP1 is a performant, 100% open-source, contributor-friendly zkVM."
+readme = "../../../README.md"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+repository = { workspace = true }
+keywords = { workspace = true }
+categories = { workspace = true }
+
+[dependencies]
+bincode = "1.3.3"
+serde = { workspace = true, features = ["derive", "rc"] }
+serde_json = { workspace = true }
+itertools = { workspace = true }
+num = { version = "0.4.3" }
+rrs_lib = { package = "rrs-lib", git = "https://github.com/succinctlabs/rrs-succinct.git", branch = "gautham/rv64executor-2" }
+slop-air = { workspace = true }
+slop-koala-bear = { workspace = true }
+slop-algebra = { workspace = true }
+slop-challenger = { workspace = true }
+slop-keccak-air = { workspace = true }
+slop-matrix = { workspace = true }
+slop-maybe-rayon = { workspace = true }
+slop-uni-stark = { workspace = true }
+sp1-derive = { workspace = true }
+sp1-primitives = { workspace = true }
+
+
+slop-futures = { workspace = true }
+
+rayon = "1.10.0"
+rayon-scan = "0.1.1"
+sysinfo = "0.30.13"
+
+amcl = { package = "snowbridge-amcl", version = "1.0.2", default-features = false, features = [
+  "bls381",
+] }
+cfg-if = "1.0.0"
+generic-array = { version = "=1.1.0", features = ["alloc", "serde"] }
+typenum = "1.17.0"
+
+num_cpus = "1.16.0"
+tempfile = "3.10.1"
+tracing = { workspace = true }
+tracing-forest = { version = "0.1.6", features = ["ansi", "smallvec"] }
+tracing-subscriber = { workspace = true, features = ["std", "env-filter"] }
+strum = { workspace = true }
+strum_macros = { workspace = true }
+thiserror = "1.0.63"
+hashbrown = { workspace = true, features = ["serde", "inline-more"] }
+
+sp1-hypercube = { workspace = true }
+sp1-core-executor = { workspace = true }
+sp1-curves = { workspace = true }
+slop-poseidon2 = { workspace = true }
+tokio = { workspace = true }
+static_assertions = "1.1.0"
+
+[dev-dependencies]
+rand = { workspace = true }
+num = { version = "0.4.3", features = ["rand"] }
+sp1-core-executor = { workspace = true }
+test-artifacts = { workspace = true }
+tokio = { workspace = true }
+slop-air = { workspace = true }
+slop-koala-bear = { workspace = true }
+slop-algebra = { workspace = true }
+slop-matrix = { workspace = true }
+tiny-keccak = { version = "2.0.2", features = ["keccak"] }
+hex = "0.4.3"
+elliptic-curve = "0.13.8"
+k256 = { version = "0.13.3", features = ["expose-field"] }
+p256 = { version = "0.13.2", features = ["expose-field"] }
+
+[build-dependencies]
+sp1-hypercube = { workspace = true }
+sp1-primitives = { workspace = true }
+slop-koala-bear = { workspace = true }
+
+[features]
+debug = []
+bigint-rug = ["sp1-curves/bigint-rug"]
+
+[lib]
+path = "src/lib.rs"
+bench = false
+
+[lints]
+workspace = true
