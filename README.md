@@ -53,248 +53,248 @@ SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) 
 
 # Scope
 
-*See [scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/scope.txt)*
+_See [scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/scope.txt)_
 
 ### Files in scope
 
-| File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
-| ------ | --------------- | ---------- | ----- | -----   | ------------ |
-| /crates/recursion/circuit/src/basefold/merkle_tree.rs | ****| **** | 108 | ||
-| /crates/recursion/circuit/src/basefold/mod.rs | ****| **** | 544 | ||
-| /crates/recursion/circuit/src/basefold/stacked.rs | ****| **** | 212 | ||
-| /crates/recursion/circuit/src/basefold/tcs.rs | ****| **** | 168 | ||
-| /crates/recursion/circuit/src/basefold/whir.rs | ****| **** | 676 | ||
-| /crates/recursion/circuit/src/basefold/witness.rs | ****| **** | 160 | ||
-| /crates/recursion/circuit/src/challenger.rs | ****| **** | 583 | ||
-| /crates/recursion/circuit/src/dummy/jagged.rs | ****| **** | 317 | ||
-| /crates/recursion/circuit/src/dummy/logup_gkr.rs | ****| **** | 53 | ||
-| /crates/recursion/circuit/src/dummy/mod.rs | ****| **** | 5 | ||
-| /crates/recursion/circuit/src/dummy/shard_proof.rs | ****| **** | 79 | ||
-| /crates/recursion/circuit/src/dummy/sumcheck.rs | ****| **** | 16 | ||
-| /crates/recursion/circuit/src/hash.rs | ****| **** | 245 | ||
-| /crates/recursion/circuit/src/jagged/jagged_eval.rs | ****| **** | 364 | ||
-| /crates/recursion/circuit/src/jagged/mod.rs | ****| **** | 5 | ||
-| /crates/recursion/circuit/src/jagged/verifier.rs | ****| **** | 447 | ||
-| /crates/recursion/circuit/src/jagged/witness.rs | ****| **** | 87 | ||
-| /crates/recursion/circuit/src/lib.rs | ****| **** | 721 | ||
-| /crates/recursion/circuit/src/logup_gkr.rs | ****| **** | 256 | ||
-| /crates/recursion/circuit/src/machine/complete.rs | ****| **** | 96 | ||
-| /crates/recursion/circuit/src/machine/compress.rs | ****| **** | 306 | ||
-| /crates/recursion/circuit/src/machine/core.rs | ****| **** | 169 | ||
-| /crates/recursion/circuit/src/machine/deferred.rs | ****| **** | 189 | ||
-| /crates/recursion/circuit/src/machine/mod.rs | ****| **** | 22 | ||
-| /crates/recursion/circuit/src/machine/public_values.rs | ****| **** | 96 | ||
-| /crates/recursion/circuit/src/machine/root.rs | ****| **** | 52 | ||
-| /crates/recursion/circuit/src/machine/vkey_proof.rs | ****| **** | 139 | ||
-| /crates/recursion/circuit/src/machine/witness.rs | ****| **** | 229 | ||
-| /crates/recursion/circuit/src/machine/wrap.rs | ****| **** | 64 | ||
-| /crates/recursion/circuit/src/shard.rs | ****| **** | 528 | ||
-| /crates/recursion/circuit/src/sumcheck/mod.rs | ****| **** | 266 | ||
-| /crates/recursion/circuit/src/sumcheck/witness.rs | ****| **** | 47 | ||
-| /crates/recursion/circuit/src/symbolic.rs | ****| **** | 58 | ||
-| /crates/recursion/circuit/src/utils.rs | ****| **** | 97 | ||
-| /crates/recursion/circuit/src/witness.rs | ****| **** | 309 | ||
-| /crates/recursion/circuit/src/zerocheck.rs | ****| **** | 220 | ||
-| /crates/recursion/machine/src/builder.rs | ****| **** | 63 | ||
-| /crates/recursion/machine/src/chips/alu_base.rs | ****| **** | 225 | ||
-| /crates/recursion/machine/src/chips/alu_ext.rs | ****| **** | 235 | ||
-| /crates/recursion/machine/src/chips/mem/constant.rs | ****| **** | 191 | ||
-| /crates/recursion/machine/src/chips/mem/mod.rs | ****| **** | 14 | ||
-| /crates/recursion/machine/src/chips/mem/variable.rs | ****| **** | 181 | ||
-| /crates/recursion/machine/src/chips/mod.rs | ****| **** | 10 | ||
-| /crates/recursion/machine/src/chips/poseidon2_helper/convert.rs | ****| **** | 186 | ||
-| /crates/recursion/machine/src/chips/poseidon2_helper/linear.rs | ****| **** | 234 | ||
-| /crates/recursion/machine/src/chips/poseidon2_helper/mod.rs | ****| **** | 3 | ||
-| /crates/recursion/machine/src/chips/poseidon2_helper/sbox.rs | ****| **** | 202 | ||
-| /crates/recursion/machine/src/chips/poseidon2_wide/air.rs | ****| **** | 60 | ||
-| /crates/recursion/machine/src/chips/poseidon2_wide/columns/mod.rs | ****| **** | 1 | ||
-| /crates/recursion/machine/src/chips/poseidon2_wide/columns/preprocessed.rs | ****| **** | 11 | ||
-| /crates/recursion/machine/src/chips/poseidon2_wide/mod.rs | ****| **** | 70 | ||
-| /crates/recursion/machine/src/chips/poseidon2_wide/trace.rs | ****| **** | 144 | ||
-| /crates/recursion/machine/src/chips/prefix_sum_checks.rs | ****| **** | 302 | ||
-| /crates/recursion/machine/src/chips/public_values.rs | ****| **** | 225 | ||
-| /crates/recursion/machine/src/chips/select.rs | ****| **** | 193 | ||
-| /crates/recursion/machine/src/lib.rs | ****| **** | 5 | ||
-| /crates/recursion/machine/src/machine.rs | ****| **** | 237 | ||
-| /crates/prover/src/verify.rs | ****| **** | 519 | ||
-| /crates/core/executor/src/record.rs | ****| **** | 1048 | ||
-| /crates/core/machine/src/adapter/bump.rs | ****| **** | 189 | ||
-| /crates/core/machine/src/adapter/mod.rs | ****| **** | 3 | ||
-| /crates/core/machine/src/adapter/register/alu_type.rs | ****| **** | 181 | ||
-| /crates/core/machine/src/adapter/register/i_type.rs | ****| **** | 305 | ||
-| /crates/core/machine/src/adapter/register/j_type.rs | ****| **** | 144 | ||
-| /crates/core/machine/src/adapter/register/mod.rs | ****| **** | 4 | ||
-| /crates/core/machine/src/adapter/register/r_type.rs | ****| **** | 201 | ||
-| /crates/core/machine/src/adapter/state.rs | ****| **** | 100 | ||
-| /crates/core/machine/src/air/memory.rs | ****| **** | 395 | ||
-| /crates/core/machine/src/air/mod.rs | ****| **** | 42 | ||
-| /crates/core/machine/src/air/operation.rs | ****| **** | 147 | ||
-| /crates/core/machine/src/air/program.rs | ****| **** | 116 | ||
-| /crates/core/machine/src/air/word.rs | ****| **** | 85 | ||
-| /crates/core/machine/src/alu/add_sub/add.rs | ****| **** | 160 | ||
-| /crates/core/machine/src/alu/add_sub/addi.rs | ****| **** | 166 | ||
-| /crates/core/machine/src/alu/add_sub/addw.rs | ****| **** | 186 | ||
-| /crates/core/machine/src/alu/add_sub/mod.rs | ****| **** | 5 | ||
-| /crates/core/machine/src/alu/add_sub/sub.rs | ****| **** | 164 | ||
-| /crates/core/machine/src/alu/add_sub/subw.rs | ****| **** | 173 | ||
-| /crates/core/machine/src/alu/bitwise/mod.rs | ****| **** | 213 | ||
-| /crates/core/machine/src/alu/divrem/mod.rs | ****| **** | 926 | ||
-| /crates/core/machine/src/alu/lt/mod.rs | ****| **** | 211 | ||
-| /crates/core/machine/src/alu/mod.rs | ****| **** | 14 | ||
-| /crates/core/machine/src/alu/mul/mod.rs | ****| **** | 237 | ||
-| /crates/core/machine/src/alu/sll/mod.rs | ****| **** | 356 | ||
-| /crates/core/machine/src/alu/sr/mod.rs | ****| **** | 446 | ||
-| /crates/core/machine/src/bytes/air.rs | ****| **** | 48 | ||
-| /crates/core/machine/src/bytes/columns.rs | ****| **** | 21 | ||
-| /crates/core/machine/src/bytes/mod.rs | ****| **** | 70 | ||
-| /crates/core/machine/src/bytes/trace.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/control_flow/branch/air.rs | ****| **** | 143 | ||
-| /crates/core/machine/src/control_flow/branch/columns.rs | ****| **** | 22 | ||
-| /crates/core/machine/src/control_flow/branch/mod.rs | ****| **** | 12 | ||
-| /crates/core/machine/src/control_flow/branch/trace.rs | ****| **** | 108 | ||
-| /crates/core/machine/src/control_flow/jal/air.rs | ****| **** | 91 | ||
-| /crates/core/machine/src/control_flow/jal/columns.rs | ****| **** | 16 | ||
-| /crates/core/machine/src/control_flow/jal/mod.rs | ****| **** | 12 | ||
-| /crates/core/machine/src/control_flow/jal/trace.rs | ****| **** | 68 | ||
-| /crates/core/machine/src/control_flow/jalr/air.rs | ****| **** | 94 | ||
-| /crates/core/machine/src/control_flow/jalr/columns.rs | ****| **** | 16 | ||
-| /crates/core/machine/src/control_flow/jalr/mod.rs | ****| **** | 12 | ||
-| /crates/core/machine/src/control_flow/jalr/trace.rs | ****| **** | 80 | ||
-| /crates/core/machine/src/control_flow/mod.rs | ****| **** | 6 | ||
-| /crates/core/machine/src/executor.rs | ****| **** | 376 | ||
-| /crates/core/machine/src/global/mod.rs | ****| **** | 252 | ||
-| /crates/core/machine/src/io.rs | ****| **** | 49 | ||
-| /crates/core/machine/src/lib.rs | ****| **** | 121 | ||
-| /crates/core/machine/src/memory/bump.rs | ****| **** | 167 | ||
-| /crates/core/machine/src/memory/consistency/columns.rs | ****| **** | 43 | ||
-| /crates/core/machine/src/memory/consistency/mod.rs | ****| **** | 3 | ||
-| /crates/core/machine/src/memory/consistency/trace.rs | ****| **** | 109 | ||
-| /crates/core/machine/src/memory/global.rs | ****| **** | 363 | ||
-| /crates/core/machine/src/memory/instructions/load/load_byte.rs | ****| **** | 265 | ||
-| /crates/core/machine/src/memory/instructions/load/load_double.rs | ****| **** | 189 | ||
-| /crates/core/machine/src/memory/instructions/load/load_half.rs | ****| **** | 247 | ||
-| /crates/core/machine/src/memory/instructions/load/load_word.rs | ****| **** | 239 | ||
-| /crates/core/machine/src/memory/instructions/load/load_x0.rs | ****| **** | 256 | ||
-| /crates/core/machine/src/memory/instructions/load/mod.rs | ****| **** | 5 | ||
-| /crates/core/machine/src/memory/instructions/mod.rs | ****| **** | 2 | ||
-| /crates/core/machine/src/memory/instructions/store/mod.rs | ****| **** | 4 | ||
-| /crates/core/machine/src/memory/instructions/store/store_byte.rs | ****| **** | 269 | ||
-| /crates/core/machine/src/memory/instructions/store/store_double.rs | ****| **** | 188 | ||
-| /crates/core/machine/src/memory/instructions/store/store_half.rs | ****| **** | 223 | ||
-| /crates/core/machine/src/memory/instructions/store/store_word.rs | ****| **** | 215 | ||
-| /crates/core/machine/src/memory/local.rs | ****| **** | 283 | ||
-| /crates/core/machine/src/memory/mod.rs | ****| **** | 21 | ||
-| /crates/core/machine/src/memory/page_prot.rs | ****| **** | 306 | ||
-| /crates/core/machine/src/memory/page_prot_global.rs | ****| **** | 405 | ||
-| /crates/core/machine/src/memory/page_prot_local.rs | ****| **** | 237 | ||
-| /crates/core/machine/src/operations/add.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/operations/add4.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/operations/add5.rs | ****| **** | 74 | ||
-| /crates/core/machine/src/operations/add_u32.rs | ****| **** | 37 | ||
-| /crates/core/machine/src/operations/address.rs | ****| **** | 113 | ||
-| /crates/core/machine/src/operations/addrs_add.rs | ****| **** | 68 | ||
-| /crates/core/machine/src/operations/addw.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/operations/and_u32.rs | ****| **** | 66 | ||
-| /crates/core/machine/src/operations/bitwise.rs | ****| **** | 85 | ||
-| /crates/core/machine/src/operations/bitwise_u16.rs | ****| **** | 100 | ||
-| /crates/core/machine/src/operations/clk.rs | ****| **** | 67 | ||
-| /crates/core/machine/src/operations/field/field_den.rs | ****| **** | 127 | ||
-| /crates/core/machine/src/operations/field/field_inner_product.rs | ****| **** | 128 | ||
-| /crates/core/machine/src/operations/field/field_op.rs | ****| **** | 423 | ||
-| /crates/core/machine/src/operations/field/field_sqrt.rs | ****| **** | 93 | ||
-| /crates/core/machine/src/operations/field/mod.rs | ****| **** | 6 | ||
-| /crates/core/machine/src/operations/field/range.rs | ****| **** | 98 | ||
-| /crates/core/machine/src/operations/field/util_air.rs | ****| **** | 19 | ||
-| /crates/core/machine/src/operations/fixed_rotate_right.rs | ****| **** | 87 | ||
-| /crates/core/machine/src/operations/fixed_shift_right.rs | ****| **** | 91 | ||
-| /crates/core/machine/src/operations/global_accumulation.rs | ****| **** | 176 | ||
-| /crates/core/machine/src/operations/global_interaction.rs | ****| **** | 177 | ||
-| /crates/core/machine/src/operations/is_equal_word.rs | ****| **** | 82 | ||
-| /crates/core/machine/src/operations/is_zero.rs | ****| **** | 64 | ||
-| /crates/core/machine/src/operations/is_zero_word.rs | ****| **** | 84 | ||
-| /crates/core/machine/src/operations/mod.rs | ****| **** | 64 | ||
-| /crates/core/machine/src/operations/msb.rs | ****| **** | 70 | ||
-| /crates/core/machine/src/operations/mul.rs | ****| **** | 288 | ||
-| /crates/core/machine/src/operations/not_u32.rs | ****| **** | 31 | ||
-| /crates/core/machine/src/operations/page.rs | ****| **** | 267 | ||
-| /crates/core/machine/src/operations/poseidon2/air.rs | ****| **** | 108 | ||
-| /crates/core/machine/src/operations/poseidon2/mod.rs | ****| **** | 16 | ||
-| /crates/core/machine/src/operations/poseidon2/permutation.rs | ****| **** | 81 | ||
-| /crates/core/machine/src/operations/poseidon2/trace.rs | ****| **** | 101 | ||
-| /crates/core/machine/src/operations/slt.rs | ****| **** | 233 | ||
-| /crates/core/machine/src/operations/sp1_field_word.rs | ****| **** | 63 | ||
-| /crates/core/machine/src/operations/sub.rs | ****| **** | 63 | ||
-| /crates/core/machine/src/operations/subw.rs | ****| **** | 67 | ||
-| /crates/core/machine/src/operations/syscall_addr.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/operations/u16_compare.rs | ****| **** | 69 | ||
-| /crates/core/machine/src/operations/u16_operation.rs | ****| **** | 86 | ||
-| /crates/core/machine/src/operations/u32_operation.rs | ****| **** | 29 | ||
-| /crates/core/machine/src/operations/xor_u32.rs | ****| **** | 67 | ||
-| /crates/core/machine/src/program/instruction.rs | ****| **** | 43 | ||
-| /crates/core/machine/src/program/instruction_decode.rs | ****| **** | 536 | ||
-| /crates/core/machine/src/program/instruction_fetch.rs | ****| **** | 280 | ||
-| /crates/core/machine/src/program/mod.rs | ****| **** | 8 | ||
-| /crates/core/machine/src/program/trusted.rs | ****| **** | 269 | ||
-| /crates/core/machine/src/range/air.rs | ****| **** | 28 | ||
-| /crates/core/machine/src/range/columns.rs | ****| **** | 15 | ||
-| /crates/core/machine/src/range/mod.rs | ****| **** | 45 | ||
-| /crates/core/machine/src/range/trace.rs | ****| **** | 73 | ||
-| /crates/core/machine/src/riscv/mod.rs | ****| **** | 1097 | ||
-| /crates/core/machine/src/syscall/chip.rs | ****| **** | 288 | ||
-| /crates/core/machine/src/syscall/instructions/air.rs | ****| **** | 352 | ||
-| /crates/core/machine/src/syscall/instructions/columns.rs | ****| **** | 29 | ||
-| /crates/core/machine/src/syscall/instructions/mod.rs | ****| **** | 12 | ||
-| /crates/core/machine/src/syscall/instructions/trace.rs | ****| **** | 130 | ||
-| /crates/core/machine/src/syscall/mod.rs | ****| **** | 3 | ||
-| /crates/core/machine/src/syscall/precompiles/edwards/ed_add.rs | ****| **** | 400 | ||
-| /crates/core/machine/src/syscall/precompiles/edwards/ed_decompress.rs | ****| **** | 355 | ||
-| /crates/core/machine/src/syscall/precompiles/edwards/mod.rs | ****| **** | 4 | ||
-| /crates/core/machine/src/syscall/precompiles/fptower/fp.rs | ****| **** | 338 | ||
-| /crates/core/machine/src/syscall/precompiles/fptower/fp2_addsub.rs | ****| **** | 375 | ||
-| /crates/core/machine/src/syscall/precompiles/fptower/fp2_mul.rs | ****| **** | 419 | ||
-| /crates/core/machine/src/syscall/precompiles/fptower/mod.rs | ****| **** | 58 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/air.rs | ****| **** | 199 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/columns.rs | ****| **** | 14 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/constants.rs | ****| **** | 151 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/controller.rs | ****| **** | 284 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/mod.rs | ****| **** | 33 | ||
-| /crates/core/machine/src/syscall/precompiles/keccak256/trace.rs | ****| **** | 125 | ||
-| /crates/core/machine/src/syscall/precompiles/mod.rs | ****| **** | 10 | ||
-| /crates/core/machine/src/syscall/precompiles/mprotect/air.rs | ****| **** | 173 | ||
-| /crates/core/machine/src/syscall/precompiles/mprotect/mod.rs | ****| **** | 2 | ||
-| /crates/core/machine/src/syscall/precompiles/poseidon2/air.rs | ****| **** | 380 | ||
-| /crates/core/machine/src/syscall/precompiles/poseidon2/mod.rs | ****| **** | 2 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/compress/air.rs | ****| **** | 424 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/compress/columns.rs | ****| **** | 65 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/compress/controller.rs | ****| **** | 238 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/compress/mod.rs | ****| **** | 40 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/compress/trace.rs | ****| **** | 276 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/extend/air.rs | ****| **** | 252 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/extend/columns.rs | ****| **** | 41 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/extend/controller.rs | ****| **** | 217 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/extend/mod.rs | ****| **** | 45 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/extend/trace.rs | ****| **** | 149 | ||
-| /crates/core/machine/src/syscall/precompiles/sha256/mod.rs | ****| **** | 4 | ||
-| /crates/core/machine/src/syscall/precompiles/u256x2048_mul/air.rs | ****| **** | 503 | ||
-| /crates/core/machine/src/syscall/precompiles/u256x2048_mul/mod.rs | ****| **** | 18 | ||
-| /crates/core/machine/src/syscall/precompiles/uint256/air.rs | ****| **** | 356 | ||
-| /crates/core/machine/src/syscall/precompiles/uint256/mod.rs | ****| **** | 23 | ||
-| /crates/core/machine/src/syscall/precompiles/uint256_ops/air.rs | ****| **** | 286 | ||
-| /crates/core/machine/src/syscall/precompiles/uint256_ops/mod.rs | ****| **** | 238 | ||
-| /crates/core/machine/src/syscall/precompiles/weierstrass/mod.rs | ****| **** | 6 | ||
-| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_add.rs | ****| **** | 587 | ||
-| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_decompress.rs | ****| **** | 611 | ||
-| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_double.rs | ****| **** | 520 | ||
-| /crates/core/machine/src/utils/concurrency.rs | ****| **** | 94 | ||
-| /crates/core/machine/src/utils/logger.rs | ****| **** | 61 | ||
-| /crates/core/machine/src/utils/mod.rs | ****| **** | 136 | ||
-| /crates/core/machine/src/utils/span.rs | ****| **** | 99 | ||
-| /crates/core/machine/src/utype/mod.rs | ****| **** | 182 | ||
-| **Totals** | **** | **** | **39411** | | |
+| File | nSLOC |
+| ---- | ----- |
+| /crates/recursion/circuit/src/basefold/merkle_tree.rs | 108 |
+| /crates/recursion/circuit/src/basefold/mod.rs | 544 |
+| /crates/recursion/circuit/src/basefold/stacked.rs | 212 |
+| /crates/recursion/circuit/src/basefold/tcs.rs | 168 |
+| /crates/recursion/circuit/src/basefold/whir.rs | 676 |
+| /crates/recursion/circuit/src/basefold/witness.rs | 160 |
+| /crates/recursion/circuit/src/challenger.rs | 583 |
+| /crates/recursion/circuit/src/dummy/jagged.rs | 317 |
+| /crates/recursion/circuit/src/dummy/logup_gkr.rs | 53 |
+| /crates/recursion/circuit/src/dummy/mod.rs | 5 |
+| /crates/recursion/circuit/src/dummy/shard_proof.rs | 79 |
+| /crates/recursion/circuit/src/dummy/sumcheck.rs | 16 |
+| /crates/recursion/circuit/src/hash.rs | 245 |
+| /crates/recursion/circuit/src/jagged/jagged_eval.rs | 364 |
+| /crates/recursion/circuit/src/jagged/mod.rs | 5 |
+| /crates/recursion/circuit/src/jagged/verifier.rs | 447 |
+| /crates/recursion/circuit/src/jagged/witness.rs | 87 |
+| /crates/recursion/circuit/src/lib.rs | 721 |
+| /crates/recursion/circuit/src/logup_gkr.rs | 256 |
+| /crates/recursion/circuit/src/machine/complete.rs | 96 |
+| /crates/recursion/circuit/src/machine/compress.rs | 306 |
+| /crates/recursion/circuit/src/machine/core.rs | 169 |
+| /crates/recursion/circuit/src/machine/deferred.rs | 189 |
+| /crates/recursion/circuit/src/machine/mod.rs | 22 |
+| /crates/recursion/circuit/src/machine/public_values.rs | 96 |
+| /crates/recursion/circuit/src/machine/root.rs | 52 |
+| /crates/recursion/circuit/src/machine/vkey_proof.rs | 139 |
+| /crates/recursion/circuit/src/machine/witness.rs | 229 |
+| /crates/recursion/circuit/src/machine/wrap.rs | 64 |
+| /crates/recursion/circuit/src/shard.rs | 528 |
+| /crates/recursion/circuit/src/sumcheck/mod.rs | 266 |
+| /crates/recursion/circuit/src/sumcheck/witness.rs | 47 |
+| /crates/recursion/circuit/src/symbolic.rs | 58 |
+| /crates/recursion/circuit/src/utils.rs | 97 |
+| /crates/recursion/circuit/src/witness.rs | 309 |
+| /crates/recursion/circuit/src/zerocheck.rs | 220 |
+| /crates/recursion/machine/src/builder.rs | 63 |
+| /crates/recursion/machine/src/chips/alu_base.rs | 225 |
+| /crates/recursion/machine/src/chips/alu_ext.rs | 235 |
+| /crates/recursion/machine/src/chips/mem/constant.rs | 191 |
+| /crates/recursion/machine/src/chips/mem/mod.rs | 14 |
+| /crates/recursion/machine/src/chips/mem/variable.rs | 181 |
+| /crates/recursion/machine/src/chips/mod.rs | 10 |
+| /crates/recursion/machine/src/chips/poseidon2_helper/convert.rs | 186 |
+| /crates/recursion/machine/src/chips/poseidon2_helper/linear.rs | 234 |
+| /crates/recursion/machine/src/chips/poseidon2_helper/mod.rs | 3 |
+| /crates/recursion/machine/src/chips/poseidon2_helper/sbox.rs | 202 |
+| /crates/recursion/machine/src/chips/poseidon2_wide/air.rs | 60 |
+| /crates/recursion/machine/src/chips/poseidon2_wide/columns/mod.rs | 1 |
+| /crates/recursion/machine/src/chips/poseidon2_wide/columns/preprocessed.rs | 11 |
+| /crates/recursion/machine/src/chips/poseidon2_wide/mod.rs | 70 |
+| /crates/recursion/machine/src/chips/poseidon2_wide/trace.rs | 144 |
+| /crates/recursion/machine/src/chips/prefix_sum_checks.rs | 302 |
+| /crates/recursion/machine/src/chips/public_values.rs | 225 |
+| /crates/recursion/machine/src/chips/select.rs | 193 |
+| /crates/recursion/machine/src/lib.rs | 5 |
+| /crates/recursion/machine/src/machine.rs | 237 |
+| /crates/prover/src/verify.rs | 519 |
+| /crates/core/executor/src/record.rs | 1048 |
+| /crates/core/machine/src/adapter/bump.rs | 189 |
+| /crates/core/machine/src/adapter/mod.rs | 3 |
+| /crates/core/machine/src/adapter/register/alu_type.rs | 181 |
+| /crates/core/machine/src/adapter/register/i_type.rs | 305 |
+| /crates/core/machine/src/adapter/register/j_type.rs | 144 |
+| /crates/core/machine/src/adapter/register/mod.rs | 4 |
+| /crates/core/machine/src/adapter/register/r_type.rs | 201 |
+| /crates/core/machine/src/adapter/state.rs | 100 |
+| /crates/core/machine/src/air/memory.rs | 395 |
+| /crates/core/machine/src/air/mod.rs | 42 |
+| /crates/core/machine/src/air/operation.rs | 147 |
+| /crates/core/machine/src/air/program.rs | 116 |
+| /crates/core/machine/src/air/word.rs | 85 |
+| /crates/core/machine/src/alu/add_sub/add.rs | 160 |
+| /crates/core/machine/src/alu/add_sub/addi.rs | 166 |
+| /crates/core/machine/src/alu/add_sub/addw.rs | 186 |
+| /crates/core/machine/src/alu/add_sub/mod.rs | 5 |
+| /crates/core/machine/src/alu/add_sub/sub.rs | 164 |
+| /crates/core/machine/src/alu/add_sub/subw.rs | 173 |
+| /crates/core/machine/src/alu/bitwise/mod.rs | 213 |
+| /crates/core/machine/src/alu/divrem/mod.rs | 926 |
+| /crates/core/machine/src/alu/lt/mod.rs | 211 |
+| /crates/core/machine/src/alu/mod.rs | 14 |
+| /crates/core/machine/src/alu/mul/mod.rs | 237 |
+| /crates/core/machine/src/alu/sll/mod.rs | 356 |
+| /crates/core/machine/src/alu/sr/mod.rs | 446 |
+| /crates/core/machine/src/bytes/air.rs | 48 |
+| /crates/core/machine/src/bytes/columns.rs | 21 |
+| /crates/core/machine/src/bytes/mod.rs | 70 |
+| /crates/core/machine/src/bytes/trace.rs | 65 |
+| /crates/core/machine/src/control_flow/branch/air.rs | 143 |
+| /crates/core/machine/src/control_flow/branch/columns.rs | 22 |
+| /crates/core/machine/src/control_flow/branch/mod.rs | 12 |
+| /crates/core/machine/src/control_flow/branch/trace.rs | 108 |
+| /crates/core/machine/src/control_flow/jal/air.rs | 91 |
+| /crates/core/machine/src/control_flow/jal/columns.rs | 16 |
+| /crates/core/machine/src/control_flow/jal/mod.rs | 12 |
+| /crates/core/machine/src/control_flow/jal/trace.rs | 68 |
+| /crates/core/machine/src/control_flow/jalr/air.rs | 94 |
+| /crates/core/machine/src/control_flow/jalr/columns.rs | 16 |
+| /crates/core/machine/src/control_flow/jalr/mod.rs | 12 |
+| /crates/core/machine/src/control_flow/jalr/trace.rs | 80 |
+| /crates/core/machine/src/control_flow/mod.rs | 6 |
+| /crates/core/machine/src/executor.rs | 376 |
+| /crates/core/machine/src/global/mod.rs | 252 |
+| /crates/core/machine/src/io.rs | 49 |
+| /crates/core/machine/src/lib.rs | 121 |
+| /crates/core/machine/src/memory/bump.rs | 167 |
+| /crates/core/machine/src/memory/consistency/columns.rs | 43 |
+| /crates/core/machine/src/memory/consistency/mod.rs | 3 |
+| /crates/core/machine/src/memory/consistency/trace.rs | 109 |
+| /crates/core/machine/src/memory/global.rs | 363 |
+| /crates/core/machine/src/memory/instructions/load/load_byte.rs | 265 |
+| /crates/core/machine/src/memory/instructions/load/load_double.rs | 189 |
+| /crates/core/machine/src/memory/instructions/load/load_half.rs | 247 |
+| /crates/core/machine/src/memory/instructions/load/load_word.rs | 239 |
+| /crates/core/machine/src/memory/instructions/load/load_x0.rs | 256 |
+| /crates/core/machine/src/memory/instructions/load/mod.rs | 5 |
+| /crates/core/machine/src/memory/instructions/mod.rs | 2 |
+| /crates/core/machine/src/memory/instructions/store/mod.rs | 4 |
+| /crates/core/machine/src/memory/instructions/store/store_byte.rs | 269 |
+| /crates/core/machine/src/memory/instructions/store/store_double.rs | 188 |
+| /crates/core/machine/src/memory/instructions/store/store_half.rs | 223 |
+| /crates/core/machine/src/memory/instructions/store/store_word.rs | 215 |
+| /crates/core/machine/src/memory/local.rs | 283 |
+| /crates/core/machine/src/memory/mod.rs | 21 |
+| /crates/core/machine/src/memory/page_prot.rs | 306 |
+| /crates/core/machine/src/memory/page_prot_global.rs | 405 |
+| /crates/core/machine/src/memory/page_prot_local.rs | 237 |
+| /crates/core/machine/src/operations/add.rs | 65 |
+| /crates/core/machine/src/operations/add4.rs | 65 |
+| /crates/core/machine/src/operations/add5.rs | 74 |
+| /crates/core/machine/src/operations/add_u32.rs | 37 |
+| /crates/core/machine/src/operations/address.rs | 113 |
+| /crates/core/machine/src/operations/addrs_add.rs | 68 |
+| /crates/core/machine/src/operations/addw.rs | 65 |
+| /crates/core/machine/src/operations/and_u32.rs | 66 |
+| /crates/core/machine/src/operations/bitwise.rs | 85 |
+| /crates/core/machine/src/operations/bitwise_u16.rs | 100 |
+| /crates/core/machine/src/operations/clk.rs | 67 |
+| /crates/core/machine/src/operations/field/field_den.rs | 127 |
+| /crates/core/machine/src/operations/field/field_inner_product.rs | 128 |
+| /crates/core/machine/src/operations/field/field_op.rs | 423 |
+| /crates/core/machine/src/operations/field/field_sqrt.rs | 93 |
+| /crates/core/machine/src/operations/field/mod.rs | 6 |
+| /crates/core/machine/src/operations/field/range.rs | 98 |
+| /crates/core/machine/src/operations/field/util_air.rs | 19 |
+| /crates/core/machine/src/operations/fixed_rotate_right.rs | 87 |
+| /crates/core/machine/src/operations/fixed_shift_right.rs | 91 |
+| /crates/core/machine/src/operations/global_accumulation.rs | 176 |
+| /crates/core/machine/src/operations/global_interaction.rs | 177 |
+| /crates/core/machine/src/operations/is_equal_word.rs | 82 |
+| /crates/core/machine/src/operations/is_zero.rs | 64 |
+| /crates/core/machine/src/operations/is_zero_word.rs | 84 |
+| /crates/core/machine/src/operations/mod.rs | 64 |
+| /crates/core/machine/src/operations/msb.rs | 70 |
+| /crates/core/machine/src/operations/mul.rs | 288 |
+| /crates/core/machine/src/operations/not_u32.rs | 31 |
+| /crates/core/machine/src/operations/page.rs | 267 |
+| /crates/core/machine/src/operations/poseidon2/air.rs | 108 |
+| /crates/core/machine/src/operations/poseidon2/mod.rs | 16 |
+| /crates/core/machine/src/operations/poseidon2/permutation.rs | 81 |
+| /crates/core/machine/src/operations/poseidon2/trace.rs | 101 |
+| /crates/core/machine/src/operations/slt.rs | 233 |
+| /crates/core/machine/src/operations/sp1_field_word.rs | 63 |
+| /crates/core/machine/src/operations/sub.rs | 63 |
+| /crates/core/machine/src/operations/subw.rs | 67 |
+| /crates/core/machine/src/operations/syscall_addr.rs | 65 |
+| /crates/core/machine/src/operations/u16_compare.rs | 69 |
+| /crates/core/machine/src/operations/u16_operation.rs | 86 |
+| /crates/core/machine/src/operations/u32_operation.rs | 29 |
+| /crates/core/machine/src/operations/xor_u32.rs | 67 |
+| /crates/core/machine/src/program/instruction.rs | 43 |
+| /crates/core/machine/src/program/instruction_decode.rs | 536 |
+| /crates/core/machine/src/program/instruction_fetch.rs | 280 |
+| /crates/core/machine/src/program/mod.rs | 8 |
+| /crates/core/machine/src/program/trusted.rs | 269 |
+| /crates/core/machine/src/range/air.rs | 28 |
+| /crates/core/machine/src/range/columns.rs | 15 |
+| /crates/core/machine/src/range/mod.rs | 45 |
+| /crates/core/machine/src/range/trace.rs | 73 |
+| /crates/core/machine/src/riscv/mod.rs | 1097 |
+| /crates/core/machine/src/syscall/chip.rs | 288 |
+| /crates/core/machine/src/syscall/instructions/air.rs | 352 |
+| /crates/core/machine/src/syscall/instructions/columns.rs | 29 |
+| /crates/core/machine/src/syscall/instructions/mod.rs | 12 |
+| /crates/core/machine/src/syscall/instructions/trace.rs | 130 |
+| /crates/core/machine/src/syscall/mod.rs | 3 |
+| /crates/core/machine/src/syscall/precompiles/edwards/ed_add.rs | 400 |
+| /crates/core/machine/src/syscall/precompiles/edwards/ed_decompress.rs | 355 |
+| /crates/core/machine/src/syscall/precompiles/edwards/mod.rs | 4 |
+| /crates/core/machine/src/syscall/precompiles/fptower/fp.rs | 338 |
+| /crates/core/machine/src/syscall/precompiles/fptower/fp2_addsub.rs | 375 |
+| /crates/core/machine/src/syscall/precompiles/fptower/fp2_mul.rs | 419 |
+| /crates/core/machine/src/syscall/precompiles/fptower/mod.rs | 58 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/air.rs | 199 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/columns.rs | 14 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/constants.rs | 151 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/controller.rs | 284 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/mod.rs | 33 |
+| /crates/core/machine/src/syscall/precompiles/keccak256/trace.rs | 125 |
+| /crates/core/machine/src/syscall/precompiles/mod.rs | 10 |
+| /crates/core/machine/src/syscall/precompiles/mprotect/air.rs | 173 |
+| /crates/core/machine/src/syscall/precompiles/mprotect/mod.rs | 2 |
+| /crates/core/machine/src/syscall/precompiles/poseidon2/air.rs | 380 |
+| /crates/core/machine/src/syscall/precompiles/poseidon2/mod.rs | 2 |
+| /crates/core/machine/src/syscall/precompiles/sha256/compress/air.rs | 424 |
+| /crates/core/machine/src/syscall/precompiles/sha256/compress/columns.rs | 65 |
+| /crates/core/machine/src/syscall/precompiles/sha256/compress/controller.rs | 238 |
+| /crates/core/machine/src/syscall/precompiles/sha256/compress/mod.rs | 40 |
+| /crates/core/machine/src/syscall/precompiles/sha256/compress/trace.rs | 276 |
+| /crates/core/machine/src/syscall/precompiles/sha256/extend/air.rs | 252 |
+| /crates/core/machine/src/syscall/precompiles/sha256/extend/columns.rs | 41 |
+| /crates/core/machine/src/syscall/precompiles/sha256/extend/controller.rs | 217 |
+| /crates/core/machine/src/syscall/precompiles/sha256/extend/mod.rs | 45 |
+| /crates/core/machine/src/syscall/precompiles/sha256/extend/trace.rs | 149 |
+| /crates/core/machine/src/syscall/precompiles/sha256/mod.rs | 4 |
+| /crates/core/machine/src/syscall/precompiles/u256x2048_mul/air.rs | 503 |
+| /crates/core/machine/src/syscall/precompiles/u256x2048_mul/mod.rs | 18 |
+| /crates/core/machine/src/syscall/precompiles/uint256/air.rs | 356 |
+| /crates/core/machine/src/syscall/precompiles/uint256/mod.rs | 23 |
+| /crates/core/machine/src/syscall/precompiles/uint256_ops/air.rs | 286 |
+| /crates/core/machine/src/syscall/precompiles/uint256_ops/mod.rs | 238 |
+| /crates/core/machine/src/syscall/precompiles/weierstrass/mod.rs | 6 |
+| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_add.rs | 587 |
+| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_decompress.rs | 611 |
+| /crates/core/machine/src/syscall/precompiles/weierstrass/weierstrass_double.rs | 520 |
+| /crates/core/machine/src/utils/concurrency.rs | 94 |
+| /crates/core/machine/src/utils/logger.rs | 61 |
+| /crates/core/machine/src/utils/mod.rs | 136 |
+| /crates/core/machine/src/utils/span.rs | 99 |
+| /crates/core/machine/src/utype/mod.rs | 182 |
+| **Total** | **39411** |
 
 ### Files out of scope
 
-*See [out_of_scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/out_of_scope.txt)*
+_See [out_of_scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/out_of_scope.txt)_
 
 | File         |
 | ------------ |
@@ -1020,7 +1020,6 @@ SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) 
 | ./slop/crates/whir/src/prover.rs |
 | ./slop/crates/whir/src/verifier.rs |
 | Totals: 721 |
-
 
 # Additional context
 
