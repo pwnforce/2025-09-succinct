@@ -34,6 +34,8 @@ We are also aware that our `generate_trace` function for the `DivRemChip` may pa
 
 We are also aware that the `vk_root` and the merkle tree of valid recursion verification keys is not set up yet. Auditors should assume that this merkle tree will be set up correctly, and that the merkle proof verification for the `vk_root` will be turned on in production, asserting that only valid verification keys can be used in recursion.
 
+We are also aware that the proof nonce is currently not a part of the encoded proof in `recursion/gnark-ffi/go/sp1/utils.go`. Note that the solidity verifier is not a part of the scope.
+
 # Overview
 
 ![SP1](https://github.com/user-attachments/assets/48ccf1d5-fc4b-49e9-b916-acdb1b427531?raw=true)
@@ -95,6 +97,17 @@ _See [scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/scope.
 | /crates/recursion/circuit/src/utils.rs | 97 |
 | /crates/recursion/circuit/src/witness.rs | 309 |
 | /crates/recursion/circuit/src/zerocheck.rs | 220 |
+| /crates/recursion/gnark-ffi/go/main.go | 243 |
+| /crates/recursion/gnark-ffi/go/sp1/build.go | 258 |
+| /crates/recursion/gnark-ffi/go/sp1/koalabear/koalabear.go | 428 |
+| /crates/recursion/gnark-ffi/go/sp1/poseidon2/constants.go | 931 |
+| /crates/recursion/gnark-ffi/go/sp1/poseidon2/poseidon2.go | 61 |
+| /crates/recursion/gnark-ffi/go/sp1/poseidon2/poseidon2_koalabear.go | 132 |
+| /crates/recursion/gnark-ffi/go/sp1/poseidon2/utils.go | 19 |
+| /crates/recursion/gnark-ffi/go/sp1/prove.go | 139 |
+| /crates/recursion/gnark-ffi/go/sp1/sp1.go | 237 |
+| /crates/recursion/gnark-ffi/go/sp1/utils.go | 95 |
+| /crates/recursion/gnark-ffi/go/sp1/verify.go | 89 |
 | /crates/recursion/machine/src/builder.rs | 63 |
 | /crates/recursion/machine/src/chips/alu_base.rs | 225 |
 | /crates/recursion/machine/src/chips/alu_ext.rs | 235 |
@@ -290,7 +303,7 @@ _See [scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/scope.
 | /crates/core/machine/src/utils/mod.rs | 136 |
 | /crates/core/machine/src/utils/span.rs | 99 |
 | /crates/core/machine/src/utype/mod.rs | 182 |
-| **Total** | **39411** |
+| **Total** | **42043** |
 
 ### Files out of scope
 
@@ -549,21 +562,10 @@ _See [out_of_scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main
 | ./crates/recursion/executor/src/shape.rs |
 | ./crates/recursion/gnark-cli/src/main.rs |
 | ./crates/recursion/gnark-ffi/build.rs |
-| ./crates/recursion/gnark-ffi/go/main.go |
 | ./crates/recursion/gnark-ffi/go/main_test.go |
-| ./crates/recursion/gnark-ffi/go/sp1/build.go |
-| ./crates/recursion/gnark-ffi/go/sp1/koalabear/koalabear.go |
-| ./crates/recursion/gnark-ffi/go/sp1/poseidon2/constants.go |
-| ./crates/recursion/gnark-ffi/go/sp1/poseidon2/poseidon2.go |
-| ./crates/recursion/gnark-ffi/go/sp1/poseidon2/poseidon2_koalabear.go |
 | ./crates/recursion/gnark-ffi/go/sp1/poseidon2/poseidon2_test.go |
-| ./crates/recursion/gnark-ffi/go/sp1/poseidon2/utils.go |
-| ./crates/recursion/gnark-ffi/go/sp1/prove.go |
-| ./crates/recursion/gnark-ffi/go/sp1/sp1.go |
 | ./crates/recursion/gnark-ffi/go/sp1/test.go |
 | ./crates/recursion/gnark-ffi/go/sp1/trusted_setup/trusted_setup.go |
-| ./crates/recursion/gnark-ffi/go/sp1/utils.go |
-| ./crates/recursion/gnark-ffi/go/sp1/verify.go |
 | ./crates/recursion/gnark-ffi/src/ffi/docker.rs |
 | ./crates/recursion/gnark-ffi/src/ffi/mod.rs |
 | ./crates/recursion/gnark-ffi/src/ffi/native.rs |
