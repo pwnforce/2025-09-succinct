@@ -34,7 +34,7 @@ We are also aware that our `generate_trace` function for the `DivRemChip` may pa
 
 # Overview
 
-![SP1](https://github.com/user-attachments/assets/48ccf1d5-fc4b-49e9-b916-acdb1b427531)
+![SP1](https://github.com/user-attachments/assets/48ccf1d5-fc4b-49e9-b916-acdb1b427531?raw=true)
 
 SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) that can prove the execution of arbitrary Rust (or any LLVM-compiled language) programs. SP1 makes ZK accessible to _any developer_, by making it easy to write ZKP programs in normal Rust code.
 
