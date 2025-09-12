@@ -32,6 +32,8 @@ We are also aware that our JALR implementation doesn't clear the least significa
 
 We are also aware that our `generate_trace` function for the `DivRemChip` may panic on debug mode, due to the usage of `abs()` function over `i64`. Since proving is expected to be done on release mode, this issue is informational.
 
+We are also aware that the `vk_root` and the merkle tree of valid recursion verification keys is not set up yet. Auditors should assume that this merkle tree will be set up correctly, and that the merkle proof verification for the `vk_root` will be turned on in production, asserting that only valid verification keys can be used in recursion.
+
 # Overview
 
 ![SP1](https://github.com/user-attachments/assets/48ccf1d5-fc4b-49e9-b916-acdb1b427531?raw=true)
