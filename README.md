@@ -1031,7 +1031,7 @@ _See [out_of_scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main
 
 ## Main invariants
 
-These invariants hold inductively throughout the proof.
+These invariants hold inductively throughout the **core** proof.
 
 - All memory states and registers states are `u64` of four `u16` limbs.
 - The `clk_high, clk_low` values at each RISC-V instruction chip and precompile chips, as well as initial & final states of a shard are valid 24-bit values.
