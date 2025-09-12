@@ -42,12 +42,15 @@ SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) 
 
 - **Previous audits:** SP1 has undergone audits from [Veridise](https://www.veridise.com/), [Cantina](https://cantina.xyz/), and [KALOS](https://kalos.xyz/) and is recommended for production use. The audit reports are available [here](https://github.com/code-423n4/2025-09-succinct/tree/main/audits).
 - **Documentation:** <https://hackmd.io/@rkm0959/HJjChD1iex> and <https://hackmd.io/@rkm0959/rydiLQaqel>
+  - [Install](https://docs.succinct.xyz/docs/sp1/getting-started/install)
+  - [Docs](https://docs.succinct.xyz/docs/sp1/introduction)
+  - [Examples](https://github.com/succinctlabs/sp1/tree/main/examples)
 - **Website:** <https://linktr.ee/succinctlabs>
 - **X/Twitter:** <https://x.com/SuccinctLabs>
 - **[Install](https://docs.succinct.xyz/docs/sp1/getting-started/install)**
 - **[Docs](https://docs.succinct.xyz/docs/sp1/introduction)**
 - **[Examples](https://github.com/succinctlabs/sp1/tree/main/examples)**
-- **[Telegram Chat](https://t.me/+AzG4ws-kD24yMGYx)**
+- **Telegram Chat:** <https://t.me/+AzG4ws-kD24yMGYx>
 
 ---
 
