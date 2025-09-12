@@ -1,69 +1,61 @@
-# ✨ So you want to run an audit
+# Succinct audit details
 
-This `README.md` contains a set of checklists for our audit collaboration. This is your audit repo, which is used for scoping your audit and for providing information to wardens
-
-Some of the checklists in this doc are for our scouts and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Confirm that this repo is a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-## ⭐️ Sponsor: Repo checklist
-
-- [ ] Modify the [Overview](#overview) section of this `README.md` file. Describe how your code is supposed to work with links to any relevant documentation and any other criteria/details that the auditors should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Review and confirm the details created by the Scout (technical reviewer) who was assigned to your contest. *Note: any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.*  
-
----
-
-# Sponsorname audit details
-- Total Prize Pool: XXX XXX USDC (Notion: Total award pool)
-  - HM awards: up to XXX XXX USDC (Notion: HM (main) pool)
-    - If no valid Highs or Mediums are found, the HM pool is $0 
-  - QA awards: XXX XXX USDC (Notion: QA pool)
-  - Judge awards: XXX XXX USDC (Notion: Judge Fee)
-  - Scout awards: $500 USDC (Notion: Scout fee - but usually $500 USDC)
-  - (this line can be removed if there is no mitigation) Mitigation Review: XXX XXX USDC
+- Total Prize Pool: $112,500 in USDC
+  - HM awards: up to $105,600 in USDC
+    - If no valid Highs or Mediums are found, the HM pool is $0
+  - QA awards: $4,400 in USDC
+  - Judge awards: $2,000 in USDC
+  - Scout awards: $500 in USDC
 - [Read our guidelines for more details](https://docs.code4rena.com/competitions)
-- Starts XXX XXX XX 20:00 UTC (ex. `Starts March 22, 2023 20:00 UTC`)
-- Ends XXX XXX XX 20:00 UTC (ex. `Ends March 30, 2023 20:00 UTC`)
+- Starts September 15, 2025 20:00 UTC
+- Ends October 15, 2025 20:00 UTC
 
-**❗ Important notes for wardens** 
-## 🐺 C4 staff: delete the PoC requirement section if not applicable - i.e. for non-Solidity/EVM audits.
-1. A coded, runnable PoC is required for all High/Medium submissions to this audit. 
-  - This repo includes a basic template to run the test suite.
-  - PoCs must use the test suite provided in this repo.
-  - Your submission will be marked as Insufficient if the POC is not runnable and working with the provided test suite.
-  - Exception: PoC is optional (though recommended) for wardens with signal ≥ 0.68.
+**❗ Important notes for wardens**
+
 1. Judging phase risk adjustments (upgrades/downgrades):
-  - High- or Medium-risk submissions downgraded by the judge to Low-risk (QA) will be ineligible for awards.
-  - Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
-  - As such, wardens are encouraged to select the appropriate risk level carefully during the submission phase.
 
-## Automated Findings / Publicly Known Issues
+- High- or Medium-risk submissions downgraded by the judge to Low-risk (QA) will be ineligible for awards.
+- Upgrading a Low-risk finding from a QA report to a Medium- or High-risk finding is not supported.
+- As such, wardens are encouraged to select the appropriate risk level carefully during the submission phase.
 
-The 4naly3er report can be found [here](https://github.com/code-423n4/YYYY-MM-contest-candidate/blob/main/4naly3er-report.md).
+## Publicly Known Issues
 
-_Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
-## 🐺 C4: Begin Gist paste here (and delete this line)
+_Note for C4 wardens: Anything included in this `Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
+From the security model in the [SP1 Docs](https://docs.succinct.xyz/docs/sp1/security/security-model), the following remains true.
 
+Since SP1 only aims to provide proof of correct execution for the user-provided program, it is crucial for users to make sure that their programs are secure.
 
+SP1 assumes that the program compiled into SP1 is non-malicious. This includes that the program is memory-safe and the compiled ELF binary has not been tampered with. Compiling unsafe programs with undefined behavior into SP1 could result in undefined or even malicious behavior being provable and verifiable within SP1. Therefore, developers must ensure the safety of their code and the correctness of their SP1 usage through the appropriate toolchain. Similarly, users using SP1's patched crates must ensure that their code is secure when compiled with the original crates. SP1 also has [requirements for safe usage of SP1 Precompiles](https://docs.succinct.xyz/docs/sp1/security/safe-precompile-usage), which must be ensured by the developers.
 
+We are also aware that our JALR implementation doesn't clear the least significant bit of the `(rs1 + imm)` value. Since this value is asserted to be a multiple of `4` in the circuit, there are no soundness issues. The only issue that may arise from this is that there might be valid execution where `(rs1 + imm)` value is not even, leading to a potential completeness issue. However, in usual programs compiled through the standard SP1 toolchain, this behavior will not be observed. Note that this clearing of LSB usually only happens on incorrect pointer arithmetic or an unsafe program, so this completeness issue is very minor.
+
+We are also aware that our `generate_trace` function for the `DivRemChip` may panic on debug mode, due to the usage of `abs()` function over `i64`. Since proving is expected to be done on release mode, this issue is informational.
+
+# Overview
+
+![SP1](https://github.com/user-attachments/assets/48ccf1d5-fc4b-49e9-b916-acdb1b427531)
+
+SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) that can prove the execution of arbitrary Rust (or any LLVM-compiled language) programs. SP1 makes ZK accessible to _any developer_, by making it easy to write ZKP programs in normal Rust code.
+
+## Links
+
+- **Previous audits:** None
+- **Documentation:** <https://hackmd.io/@rkm0959/HJjChD1iex> and <https://hackmd.io/@rkm0959/rydiLQaqel>
+- **Website:** <https://linktr.ee/succinctlabs>
+- **X/Twitter:** <https://x.com/SuccinctLabs>
+- **[Install](https://docs.succinct.xyz/docs/sp1/getting-started/install)**
+- **[Docs](https://docs.succinct.xyz/docs/sp1/introduction)**
+- **[Examples](https://github.com/succinctlabs/sp1/tree/main/examples)**
+- **[Telegram Chat](https://t.me/+AzG4ws-kD24yMGYx)**
+
+---
 
 # Scope
 
 *See [scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main/scope.txt)*
 
 ### Files in scope
-
 
 | File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
 | ------ | --------------- | ---------- | ----- | -----   | ------------ |
@@ -1029,3 +1021,45 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 | ./slop/crates/whir/src/verifier.rs |
 | Totals: 721 |
 
+
+# Additional context
+
+## Areas of concern (where to focus for bugs)
+
+- A valid execution being unprovable (i.e. completeness issues), where the ELF at hand is derived from the given SP1 toolchain with a memory safe Rust program.
+- An invalid execution being provable (i.e. soundness issues).
+
+## Main invariants
+
+These invariants hold inductively throughout the proof.
+
+- All memory states and registers states are `u64` of four `u16` limbs.
+- The `clk_high, clk_low` values at each RISC-V instruction chip and precompile chips, as well as initial & final states of a shard are valid 24-bit values.
+- The `clk` value (which is `clk_low + clk_high * 2^24`) is always `1 (mod 8)`.
+- The timestamp values used for register/memory/permissions access arguments are always two valid 24-bit limbs. The `pc` values are always three valid 16-bit limbs.
+- All interactions that do not come from a "trusted source" (either from a preprocessed trace, or other main trace that is entirely constrained to be correct, i.e. `ProgramChip`, `ByteChip`, `RangeChip`, `InstructionDecodeChip`) have boolean multiplicity always.
+- `x0` is hard-wired to zero.
+
+These are assumptions you can make about the user program.
+
+- The user program ends with a call to the `syscall_halt` function.
+
+## All trusted roles in the protocol
+
+N/A
+
+## Running tests
+
+```bash
+git clone  https://github.com/code-423n4/2025-09-succinct.git
+# Install toolchain from repo
+cargo run -p sp1-cli --no-default-features -- prove install-toolchain
+# Run test
+cargo test --release --workspace --exclude sp1-verifier --exclude sp1-sdk --features native-gnark --features unsound
+```
+
+## Miscellaneous
+
+Employees of Succinct Labs and employees' family members are ineligible to participate in this audit.
+
+Code4rena's rules cannot be overridden by the contents of this README. In case of doubt, please check with C4 staff.
