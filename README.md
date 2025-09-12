@@ -40,11 +40,9 @@ SP1 is the fastest, most-feature complete zero-knowledge virtual machine (zkVM) 
 
 ## Links
 
-- **Previous audits:** SP1 has undergone audits from [Veridise](https://www.veridise.com/), [Cantina](https://cantina.xyz/), and [KALOS](https://kalos.xyz/) and is recommended for production use. The audit reports are available [here](https://github.com/code-423n4/2025-09-succinct/tree/main/audits).
+- **Previous audits:** Previous versions of SP1 has undergone audits from [Veridise](https://www.veridise.com/), [Cantina](https://cantina.xyz/), and [KALOS](https://kalos.xyz/) and is recommended for production use. The audit reports are available [here](https://github.com/code-423n4/2025-09-succinct/tree/main/audits).
 - **Documentation:** <https://hackmd.io/@rkm0959/HJjChD1iex> and <https://hackmd.io/@rkm0959/rydiLQaqel>
-  - [Install](https://docs.succinct.xyz/docs/sp1/getting-started/install)
-  - [Docs](https://docs.succinct.xyz/docs/sp1/introduction)
-  - [Examples](https://github.com/succinctlabs/sp1/tree/main/examples)
+  - [Docs](https://docs.succinct.xyz/docs/sp1/introduction) for SP1 currently in production
 - **Website:** <https://linktr.ee/succinctlabs>
 - **X/Twitter:** <https://x.com/SuccinctLabs>
 - **Telegram Chat:** <https://t.me/+AzG4ws-kD24yMGYx>
@@ -1027,6 +1025,7 @@ _See [out_of_scope.txt](https://github.com/code-423n4/2025-09-succinct/blob/main
 
 - A valid execution being unprovable (i.e. completeness issues), where the ELF at hand is derived from the given SP1 toolchain with a memory safe Rust program.
 - An invalid execution being provable (i.e. soundness issues).
+- Refer to the HackMD documentation for more areas of concern and explanations.
 
 ## Main invariants
 
@@ -1034,7 +1033,7 @@ These invariants hold inductively throughout the proof.
 
 - All memory states and registers states are `u64` of four `u16` limbs.
 - The `clk_high, clk_low` values at each RISC-V instruction chip and precompile chips, as well as initial & final states of a shard are valid 24-bit values.
-- The `clk` value (which is `clk_low + clk_high * 2^24`) is always `1 (mod 8)`.
+- The `clk` value of the state (which is `clk_low + clk_high * 2^24`) is always `1 (mod 8)`.
 - The timestamp values used for register/memory/permissions access arguments are always two valid 24-bit limbs. The `pc` values are always three valid 16-bit limbs.
 - All interactions that do not come from a "trusted source" (either from a preprocessed trace, or other main trace that is entirely constrained to be correct, i.e. `ProgramChip`, `ByteChip`, `RangeChip`, `InstructionDecodeChip`) have boolean multiplicity always.
 - `x0` is hard-wired to zero.
