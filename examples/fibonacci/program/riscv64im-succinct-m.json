@@ -1,0 +1,39 @@
+{
+    "llvm-target": "riscv64-unknown-none-elf",
+    "data-layout": "e-m:e-p:64:64-i64:64-i128:128-n32:64-S128",
+    "arch": "riscv64",
+    "target-endian": "little",
+    "target-pointer-width": "64",
+    "target-c-int-width": "32",
+    "llvm-abiname": "lp64",
+    "features": "+m,+64bit",
+    "dynamic-linking": false,
+    "executables": true,
+    "has-ellipsisfn": false,
+    "has-rpath": false,
+    "position-independent-executables": false,
+    "relocation-model": "static",
+    "emit-debug-gdb-scripts": false,
+    "requires-precise-binary": false,
+    "disable-redzone": true,
+    "max-atomic-width": 64,
+    "atomic-cas": true,
+    "pre-link-args": {
+      "ld": ["-mabi=lp64"]
+    },
+    "override-stack-size": 8388608,
+    "default-linker": "rust-lld",
+    "os": "zkvm",
+    "panic-strategy": "abort",
+    "singlethread": true,
+    "eh-frame-header": false,
+    "cpu": "generic-rv64",
+    "crt-objects-fallback": false,
+    "metadata": {
+      "description": "Succinct's zero-knowledge Virtual Machine (RV64IM ISA with M extension)",
+      "host_tools": false,
+      "std": null,
+      "tier": 3
+    },
+    "vendor": "succinct"
+  }
