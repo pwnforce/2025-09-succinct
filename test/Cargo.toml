@@ -1,0 +1,10 @@
+[package]
+name = "test"
+version = "1.0.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+sp1-zkvm = { path = "../crates/zkvm/entrypoint" }

@@ -1,0 +1,69 @@
+{
+  "instructions": [
+    {
+      "type": "arithmetic",
+      "mnemonic": "add",
+      "args": ["t0", "t1", "t2"],
+      "description": "Add two registers"
+    },
+    {
+      "type": "arithmetic", 
+      "mnemonic": "sub",
+      "args": ["t0", "t1", "t2"],
+      "description": "Subtract two registers"
+    },
+    {
+      "type": "immediate",
+      "mnemonic": "addi",
+      "args": ["t0", "t1", "100"],
+      "description": "Add immediate"
+    },
+    {
+      "type": "immediate",
+      "mnemonic": "andi",
+      "args": ["t0", "t1", "0xFF"],
+      "description": "AND with immediate"
+    },
+    {
+      "type": "load",
+      "mnemonic": "lw",
+      "args": ["t0", "0(sp)"],
+      "description": "Load word from memory"
+    },
+    {
+      "type": "store",
+      "mnemonic": "sw",
+      "args": ["t0", "0(sp)"],
+      "description": "Store word to memory"
+    },
+    {
+      "type": "system",
+      "mnemonic": "nop",
+      "args": [],
+      "description": "No operation"
+    },
+    {
+      "type": "multiply",
+      "mnemonic": "mul",
+      "args": ["t0", "t1", "t2"], 
+      "description": "Multiply two registers"
+    }
+  ],
+  "setup": {
+    "initial_registers": {
+      "t0": 0,
+      "t1": 42,
+      "t2": 100,
+      "sp": 4096
+    },
+    "memory_layout": {
+      "stack_start": 4096,
+      "heap_start": 8192
+    }
+  },
+  "config": {
+    "max_instructions": 50,
+    "enable_branches": true,
+    "enable_memory_ops": true
+  }
+}
